@@ -170,7 +170,30 @@ public class Map {
 	}
 		
 
-	
+	public void print(){
+		String[][] ascii = new String[xMax][yMax];		
+		for(int i=0 ; i<xMax; i++){
+			for(int j=0; j<yMax; j++){
+				if(map[i][j])
+					ascii[i][j] = "#";
+				else 
+					ascii[i][j] = "  ";
+			}
+		}
+		for(Point p:path){
+			ascii[p.x][p.y] = "w";
+		}
+
+		ascii[start.x][start.y] = "S";
+		ascii[end.x][end.y] = "E";
+		
+		for(int j=yMax-1; j>=0 ; j--){
+			for(int i=xMax-1; i>=0 ; i--){
+				System.out.print(ascii[i][j]);
+			}
+			System.out.println();
+		}
+	}
 
 
 }
